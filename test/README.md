@@ -4,18 +4,18 @@ This directory contains comprehensive test cases for the Flutter Custom UI Appli
 
 ## Test Files
 
-### 1. `widget_test.dart` - Main Widget Tests
+### 1. `widget_test.dart` - Core Widget Tests
 - **MyApp Widget Tests**: Tests for the main application widget
 - **HomePage Widget Tests**: Tests for the home page structure and components
-- **Image Dialog Tests**: Tests for dialog functionality and behavior
+- **Basic Dialog Tests**: Basic dialog opening/closing functionality
 - **Integration Tests**: End-to-end user flow testing
 - **Accessibility Tests**: Semantic and accessibility validation
 - **Edge Cases**: Error handling and unusual scenarios
 
-### 2. `image_dialog_test.dart` - Specialized Image Tests
-- **Image Dialog Asset Tests**: Tests with proper asset mocking
-- **Dialog Layout Tests**: UI layout and positioning verification
-- **Dialog Interaction Tests**: Keyboard navigation and interaction testing
+### 2. `image_dialog_test.dart` - Advanced Dialog Tests
+- **Image Dialog Asset Tests**: Tests with proper asset mocking for Image.asset
+- **Dialog Layout Tests**: UI layout, positioning, and content verification
+- **Dialog Interaction Tests**: Keyboard navigation, escape key, and advanced interactions
 
 ### 3. `golden_test.dart` - Visual Regression Tests
 - **Golden Tests**: Visual comparison tests for UI consistency

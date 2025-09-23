@@ -62,7 +62,10 @@ void main() {
       expect(centerWidget.child, isA<ElevatedButton>());
     });
 
-    testWidgets('Button tap opens image dialog', (WidgetTester tester) async {
+  });
+
+  group('Basic Dialog Tests', () {
+    testWidgets('Button tap opens dialog', (WidgetTester tester) async {
       await tester.pumpWidget(
         const MaterialApp(
           home: HomePage(),
@@ -80,39 +83,6 @@ void main() {
       // Verify dialog appears
       expect(find.byType(AlertDialog), findsOneWidget);
       expect(find.text('Image Preview'), findsOneWidget);
-    });
-  });
-
-  group('Image Dialog Tests', () {
-    testWidgets('Image dialog displays correct content', (WidgetTester tester) async {
-      await tester.pumpWidget(
-        const MaterialApp(
-          home: HomePage(),
-        ),
-      );
-
-      // Open the dialog
-      await tester.tap(find.byType(ElevatedButton));
-      await tester.pumpAndSettle();
-
-      // Verify dialog title
-      expect(find.text('Image Preview'), findsOneWidget);
-      
-      // Verify dialog has correct structure
-      expect(find.byType(AlertDialog), findsOneWidget);
-      expect(find.byType(SingleChildScrollView), findsOneWidget);
-      expect(find.byType(Column), findsAtLeastNWidgets(1));
-      
-      // Verify Close button exists
-      expect(find.text('Close'), findsOneWidget);
-      expect(find.byType(TextButton), findsOneWidget);
-      
-      // Verify SizedBox for spacing
-      expect(find.byType(SizedBox), findsOneWidget);
-      
-      // Note: Image.asset will fail in tests without proper asset setup,
-      // but we can verify the widget structure
-      expect(find.byType(Image), findsOneWidget);
     });
 
     testWidgets('Close button dismisses dialog', (WidgetTester tester) async {
@@ -162,34 +132,6 @@ void main() {
 
       // Verify dialog is dismissed
       expect(find.byType(AlertDialog), findsNothing);
-    });
-
-    testWidgets('Dialog content has correct layout', (WidgetTester tester) async {
-      await tester.pumpWidget(
-        const MaterialApp(
-          home: HomePage(),
-        ),
-      );
-
-      // Open the dialog
-      await tester.tap(find.byType(ElevatedButton));
-      await tester.pumpAndSettle();
-
-      // Find the Column in the dialog content
-      final Column contentColumn = tester.widget(
-        find.descendant(
-          of: find.byType(SingleChildScrollView),
-          matching: find.byType(Column),
-        ),
-      );
-
-      // Verify Column properties
-      expect(contentColumn.mainAxisSize, MainAxisSize.min);
-      expect(contentColumn.children.length, 2); // Image and SizedBox
-
-      // Verify SizedBox height
-      final SizedBox sizedBox = contentColumn.children[1] as SizedBox;
-      expect(sizedBox.height, 16.0);
     });
   });
 

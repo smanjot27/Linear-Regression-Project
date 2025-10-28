@@ -1,0 +1,57 @@
+# Add these dependencies to your pubspec.yaml file for testing
+
+# Under dev_dependencies section:
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  
+  # For mocking dependencies
+  mockito: ^5.4.4
+  build_runner: ^2.4.7
+  
+  # For integration testing
+  integration_test:
+    sdk: flutter
+  
+  # Additional testing utilities (optional but recommended)
+  golden_toolkit: ^0.15.0  # For golden file testing
+  patrol: ^2.6.0           # Enhanced testing framework
+  mocktail: ^1.0.2         # Alternative to mockito
+  fake_async: ^1.3.1       # For testing async code
+  
+  # For network testing
+  http_mock_adapter: ^0.6.1
+  
+  # For testing with shared preferences
+  shared_preferences_platform_interface: ^2.3.1
+
+# Example complete pubspec.yaml structure:
+# name: loyalty_program_app
+# description: A Flutter loyalty program application
+# version: 1.0.0+1
+# 
+# environment:
+#   sdk: '>=3.0.0 <4.0.0'
+#   flutter: ">=3.10.0"
+# 
+# dependencies:
+#   flutter:
+#     sdk: flutter
+#   provider: ^6.1.1
+#   country_code_picker: ^3.0.0
+#   fluttertoast: ^8.2.4
+#   # ... your other dependencies
+# 
+# dev_dependencies:
+#   flutter_test:
+#     sdk: flutter
+#   mockito: ^5.4.4
+#   build_runner: ^2.4.7
+#   integration_test:
+#     sdk: flutter
+# 
+# flutter:
+#   uses-material-design: true
+#   assets:
+#     - assets/images/
+#     - assets/legal/
